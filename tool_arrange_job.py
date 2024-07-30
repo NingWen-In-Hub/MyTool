@@ -383,15 +383,15 @@ Excel_path = r"C:\ning\dev\tool\プログラムスケジュール【P・UT】_Te
 Sheet_name = "プログラムスケジュール【P・UT】 "
 
 # １.部署 # 指定案件、作業者、製造かテスト（"P" or "UT"）、開始日、超過％（対平均人日）
-# set_weekly_work("CSR6-03","伍","P",datetime.date(2024, 9, 9), 1.2, datetime.date(2024, 10, 5))
+# set_weekly_work("CSR6-03","劉","P",datetime.date(2024, 9, 9), 1.2, datetime.date(2024, 10, 5))
 # set_weekly_work("CSR6-03","劉","UT",datetime.date(2024, 10, 7), 0.8, datetime.date(2024, 10, 12))
 
 # ２.レビュー # 指定案件、作業者list、製造かテスト（"P" or "UT"）、開始日、超過％（対平均人日）
-reviewers = ["劉", "周", "寧"]
+reviewers = ["劉", "劉", "劉"]
 over_pers = [1.2, 0.5, 1.2]
 # set_review_work("CSR6-03", reviewers, "P", over_pers)
 # set_review_work("CSR6-03", reviewers, "UT", over_pers)
 
 # ３.週スケール⇒日スケール
-workers = ["劉", "範", "伍", "江", "周", "寧"]
+workers = ["劉", "劉", "劉", "劉", "劉", "劉"]
 set_daily_working(workers)
