@@ -8,8 +8,8 @@ print(nltk.__version__)
 import csv
 csv_file_path = r'C:\ning\dev\dev\tool\dic.csv'  # 替换为你的 CSV 文件路径
 
-
-
+# print(lemma) 
+# exit()
 # 下载需要的NLTK资源
 # nltk.download('punkt', download_dir='/')
 # nltk.download('punkt')
@@ -23,8 +23,6 @@ csv_file_path = r'C:\ning\dev\dev\tool\dic.csv'  # 替换为你的 CSV 文件路
 # text = "This is a test sentence."
 # tokens = word_tokenize(text)
 # print(tokens)
-
-# exit()
 
 def load_csv(file_path):
     try:
@@ -90,7 +88,8 @@ def analyze_vocab(text):
     
     # 3. 词形还原
     lemmatizer = WordNetLemmatizer()
-    lemmatized_words = [lemmatizer.lemmatize(word) for word in words]
+    lemmatized_word1 = [lemmatizer.lemmatize(word) for word in words]
+    lemmatized_words = [lemmatizer.lemmatize(word, pos='v') for word in lemmatized_word1]
     
     # 4. 统计词汇量
     unique_words = set(lemmatized_words)
@@ -117,14 +116,6 @@ def analyze_vocab(text):
         level_ratios[level] = count / unique_words_clean
         print(f"{level}: {count}  {level_ratios[level] * 100:.4f}%")
 
-    # a = (level_dict['A1']+level_dict['A2'])/unique_words_clean
-    # b = (level_dict['B1']+level_dict['B2'])/unique_words_clean
-    # c = (level_dict['C1']+level_dict['C2'])/unique_words_clean
-
-    # print(f"A:{a * 100:.4f}% \
-    # B:{b * 100:.4f}% \
-    # C:{c * 100:.4f}%")
-
     """
     A1 = 500
     A2 = 1,000
@@ -137,10 +128,6 @@ def analyze_vocab(text):
     # 词汇量计算
     required_vocab = calculate_required_vocabulary(list(level_dict.values()))
     print(f"理解文章所需词汇量: {required_vocab}")
-    
-    
-    
-    
 
     return {
         "total_words": len(words),               # 总单词数
@@ -166,5 +153,5 @@ This piece will focus on the negative effects of being constantly compared to ot
 how it can create an unhealthy sense of competition. It will emphasize the importance of accepting your own path, learning to 
 appreciate your unique strengths, and using healthy coping mechanisms like mindfulness and positive self-talk to counter feelings of 
 inadequacy."""
-result = analyze_vocab(text3)
+result = analyze_vocab(text2)
 print("分析结果:", result)
